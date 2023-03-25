@@ -16,7 +16,10 @@
   - kubernetes, containerd, ubuntu, CNI(calico)
 4. 프로텍트 설명 (mgmt, ubuntu-k8s)
   - 실습용 k8s 구성 
+    - master and node (containerd, k8s)
+    - master(calico)    
   - mgmt 유틸리티 서버 셋팅 
+    - curl, jq, docker, mysql-client, python3, k9s, kubectl, helm 
 5. 참고 
    - https://github.com/pyrasis/jHLsKubernetes/blob/main/Unit06/Vagrantfile#L71
    - https://gist.github.com/lesstif/8185f143ba7b8881e767900b1c8e98ad?permalink_comment_id=2857318#file-change-ubuntu-mirror-sh
