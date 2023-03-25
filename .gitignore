@@ -1,0 +1,3 @@
+# gitignore 
+.kube
+.vagrant
