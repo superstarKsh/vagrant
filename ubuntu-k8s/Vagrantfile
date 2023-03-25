@@ -1,0 +1,40 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  N = 2
+
+  # master-k8s
+  config.vm.boot_timeout = 3000
+  
+  config.vm.define "m-k8s" do |cfg|
+    cfg.vm.box = "bento/ubuntu-20.04"
+    cfg.vm.network "private_network", ip: "192.168.56.10"
+    cfg.vm.network "forwarded_port", guest: 22, host: 60010, auto_correct: true, id: "ssh"
+    cfg.vm.hostname = "m-k8s"
+    cfg.vm.provider "virtualbox" do |vb|
+      vb.memory = 4096
+      vb.cpus = 4
+    end
+    cfg.vm.provision "shell", path: "change-ubuntu-mirror.sh"
+    cfg.vm.provision "shell", path: "common.sh"
+    cfg.vm.provision "shell", path: "nodes.sh", args: [ 0, "MASTER" ]
+  end
+
+  # worker-nodes-k8s
+  (1..N).each do |i|
+    config.vm.define "w#{i}-k8s" do |cfg|
+      cfg.vm.box = "bento/ubuntu-20.04"
+      cfg.vm.network "private_network", ip: "192.168.56.1#{i}"
+      cfg.vm.network "forwarded_port", guest: 22, host: "6001#{i}", auto_correct: true, id: "ssh"
+      cfg.vm.hostname = "w#{i}-k8s"
+      cfg.vm.provider "virtualbox" do |vb|
+        vb.memory = 4096
+        vb.cpus = 4
+      end
+      cfg.vm.provision "shell", path: "change-ubuntu-mirror.sh"
+      cfg.vm.provision "shell", path: "common.sh"
+      cfg.vm.provision "shell", path: "nodes.sh", args: "#{i}"
+    end 
+  end
+end
