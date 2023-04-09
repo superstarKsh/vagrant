@@ -14,7 +14,7 @@
   ```
 3. 설정 
   - kubernetes, containerd, ubuntu, CNI(calico)
-4. 프로텍트 설명 (mgmt, ubuntu-k8s)
+4. 프로젝트 설명 (mgmt, ubuntu-k8s)
   - baseOS: https://github.com/chef/bento 
     - version: ubuntu-20.04    
   - 실습용 k8s 구성 
