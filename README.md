@@ -31,6 +31,7 @@
     # 임시조치 
     sudo /etc/init.d/disabled-swap.sh
   ```
+  - local Computer에서 접근하기 위한 : https://developer.hashicorp.com/vagrant/docs/networking/forwarded_ports#guest_ip  
   
 99. 참고 
    - https://github.com/pyrasis/jHLsKubernetes/blob/main/Unit06/Vagrantfile#L71
