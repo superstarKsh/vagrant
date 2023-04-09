@@ -18,9 +18,12 @@
   - 실습용 k8s 구성 
     - master and node (containerd, k8s)
     - master(calico)    
+    - port nodes[master-192.168.56.10:60010, worker1-192.168.56.11:60011, worker2-192.168.56.12:60012 ... ]
   - mgmt 유틸리티 서버 셋팅 
     - curl, jq, docker, mysql-client, python3, k9s, kubectl, helm 
-5. 참고 
+    - port[192.168.56.1:60005]
+
+99. 참고 
    - https://github.com/pyrasis/jHLsKubernetes/blob/main/Unit06/Vagrantfile#L71
    - https://gist.github.com/lesstif/8185f143ba7b8881e767900b1c8e98ad?permalink_comment_id=2857318#file-change-ubuntu-mirror-sh
 

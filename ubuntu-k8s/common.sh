@@ -7,7 +7,7 @@ sudo -s
 sudo apt update
 sudo apt install -y curl gnupg2 software-properties-common apt-transport-https ca-certificates lsb-release
 
-# todo: vm restart시 swap 설정정보가 초기화됨 rc에 등록을 하는등 방안을 찾아서 해결해야함. -> 적용완료 
+# todo: vm restart시 swap 설정정보가 초기화됨 rc에 등록을 하는등 방안을 찾아서 해결해야함. (스크립트를 적용했으나 정상적으로 실행이 안됨)
 # swapoff -a to disable swapping
 # sed to comment the swap partition in /etc/fstab
 printf "swapoff -a \nsed -i '/ swap / s/^/#/' /etc/fstab" | sudo tee -a /etc/init.d/disabled-swap.sh

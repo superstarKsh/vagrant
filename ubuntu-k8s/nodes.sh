@@ -42,4 +42,4 @@ if [ $2 = 'MASTER' ]; then
   
   systemctl restart kubelet
 
-fi 
+fi
